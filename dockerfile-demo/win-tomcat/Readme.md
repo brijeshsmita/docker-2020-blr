@@ -18,11 +18,11 @@
 4.  Create a new file inside `tomcat-win` directory with name `Dockerfile` (No Extension!)
 
     ```
-    FROM mcr.microsoft.com/windows/nanoserver:1909
+    FROM mcr.microsoft.com/windows/nanoserver:1803
 
     WORKDIR /tools
 
-    ADD jdk10.tar.gz .
+    ADD jdk-10.tar.gz .
 
     ENV PATH=/Windows;/tools/jdk-10/bin
     ENV JAVA_HOME=/tools/jdk-10
@@ -49,7 +49,7 @@
 
     ```
     $ docker run -d --name test1 mytom:nano
-    $ docker inspect test1 -f "{{ .NetworkSettings.IPAddress }}"
+    $ docker inspect test1 -f "{{ .NetworkSettings.Networks.nat.IPAddress }}"
     ```
 
 7.  Use the IP address reported by previous step (#6) to test tomcat
@@ -57,3 +57,28 @@
     http://172.21.234.11:8080
 
     > NOTE: Please replace IP address 172.21.234.11 with IP returned by step# 6.
+
+8.  Login with Docker ID and Password 
+
+    ```bash
+    $ docker login
+    Username: mahendrshinde
+    Password:        
+    Login Succeeded!
+    ```
+
+9.  Re-TAG your local image, use docker-id as PREFIX, then PUSH
+
+    ```
+    $ docker tag mytom:nano mahendrshinde/tomcat9:nano1803
+    $ docker push mahendrshinde/tomcat9:nano1803
+    ```
+
+10. Visit hub.docker.com and check the new repository
+
+11. To set DEFAULT tag (ie latest) for image.
+
+    ```bash
+    $ docker tag mahendrshinde/tomcat9:nano1803 mahendrshinde/tomcat9:latest
+    $ docker push mahendrshinde/tomcat9:latest
+    ```
