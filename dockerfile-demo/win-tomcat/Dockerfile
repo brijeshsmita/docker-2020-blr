@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/nanoserver:1909
+FROM mcr.microsoft.com/windows/nanoserver:1803
 ## Create a Working Directory for all tools
 WORKDIR /tools
 
