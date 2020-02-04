@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mahendra's Sample Web App</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <style>
+        body {
+            margin: 0px;
+            font-family: sans-serif;
+            padding: 5px;
+            background-color: azure;
+        }
+
+        h2 {
+            background-color: blanchedalmond;
+            border: 2pt solid black;
+            border-radius: 4px 8px;
+            padding: 5px;
+        }
+        p {
+            border-radius: 2px 4px;
+            border: 1pt solid red;
+            margin-left : 15px;
+            padding: 10px;
+        }
+        b {
+            background-color: beige;
+            border-bottom: 1pt dotted blue;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <h2>Containerized Web Application</h2>
+    <p>This request was served by instance <b>{{POD}}</b> and it's IP Address is <b>{{PODIP}}</b></p>
+    <br/><br/>    
+    <small>Demo by Mahendra Shinde, visit <a href="https://github.com/mahendra-shinde/kubernetes-demos/">my github</a> repo for more kubernetes demos </small>
+</body>
+</html>
